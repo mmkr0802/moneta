@@ -10,7 +10,9 @@
           label="金額"
           type="number"
           :value="amount"
-          :rules="[v => v < account.total - fee || '残高が不足しています', v => v > 0 || '１以上の値を入力してください']"
+
+  
+          :rules="[v => v < account.total - fee || '残高が不足しています', v => v > 0 || '１以上の値を入力してください' , v => v % 1 === 0 || '小数点はやめてね']"
                     @input="$store.commit('transfer/amount', $event)"
         />
         
