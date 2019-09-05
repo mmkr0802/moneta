@@ -19,12 +19,25 @@ import { mapGetters } from "vuex";
 export default {
   data: () => ({
     menues: [
-      { icon: "mdi-account", to: "/login?game=1", name: "ログイン画面" },
+      { icon: "mdi-account", to: "/login", name: "ログアウト" },
       { icon: "mdi-bank", to: "/admin/banks", name: "銀行" },
       { icon: "mdi-city", to: "/admin/branches", name: "支店" },
       { icon: "mdi-bug", to: "/admin/bugs", name: "障害" },
+      { icon: "mdi-bug", to: "/", name: "TOPメニュー" },
+
     ],
   }),
+
+
+
   computed: mapGetters("nav/drawer", ["drawer"]),
+
+methods: {
+    logoff() {
+      this.$router.push("/login");
+      this.$store.dispatch("login/id", null);
+    }
+  }
+
 };
 </script>
